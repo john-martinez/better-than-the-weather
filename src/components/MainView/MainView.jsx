@@ -20,12 +20,13 @@ class MainView extends Component {
             axios.get(`${LINK}?${this.props.match.params.city ? `q=${this.props.match.params.city}`: `lat=${lat}&lon=${long}`}&appid=${API_KEY}`)
             .then(data=>{
                 weather = data.data.weather[0].description;
-                location = data.data.name
+                location = data.data.name;
+                console.log(data.data);
             })
             .then(data=>{
                 let queryWeather = weather.split(" ").join("%20");
                 let queryLocation = location.split(" ").join("%20");
-                return axios.get(`https://api.unsplash.com/search/photos?query=${queryWeather}%20${queryLocation}%20${timeOfDay}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`)
+                return axios.get(`https://api.unsplash.com/search/photos?query=${queryWeather}%20${timeOfDay}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`)
             })
             .then(data=>images = data.data.results)
             .then(data=>this.setState({location, weather, images}))
