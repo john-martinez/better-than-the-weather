@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";
 const LINK = "http://api.openweathermap.org/data/2.5/weather";
 
@@ -18,8 +19,9 @@ class MainView extends Component {
             .then(data=>{
                 weather = data.data.weather[0].main;
                 location = data.data.name;
+                console.log(data.data);
             })
-            .then(data=> axios.get(`https://api.unsplash.com/search/photos?query=${location}%20${weather}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`))
+            .then(data=> axios.get(`https://api.unsplash.com/search/photos?query=${weather}%20${location}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`))
             .then(data=>images = data.data.results)
             .then(data=>this.setState({location, weather, images}))
             .catch(console.log)
@@ -27,17 +29,19 @@ class MainView extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        console.log(this.state.location);
-        console.log(this.state.weather);
-        console.log(this.state.images);
+        this.refs.mainBg.style.backgroundImage = `url("${this.state.images[1].urls.full}")`;
     }
     render(){  
-        if (this.state.images){
+        if (this.state.images.length > 0){
+            console.log('hehehehe');
             return (
-                <div>
-                    {this.state.images.map(item=><img src={item.urls.full} key={item.id} alt={item.description} /> )}
-                    <p>Location: {this.state.location}</p>
-                    <p>Weather: {this.state.weather}</p>
+                <div className="mainview">
+                    <div className="mainview__bg" ref="mainBg"></div>
+                    <div className="mainview__blurb">
+                        <p>Location: {this.state.location}</p>
+                        <p>Weather: {this.state.weather}</p>
+                    </div>
+
                 </div>
             )
         } else {
