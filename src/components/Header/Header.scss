@@ -1,0 +1,5 @@
+.nav {
+    position: absolute;
+    z-index: 5; 
+    &__item { display: inline-block; margin: 0 20px}
+}
