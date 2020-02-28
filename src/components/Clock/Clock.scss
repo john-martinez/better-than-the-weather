@@ -1,4 +1,5 @@
 .clock {
+    width: 90%;
     &__time { font-size: 3rem }
     font-family: bangers;
     @media only screen and (min-width: 768px) {
@@ -18,4 +19,8 @@
     @media only screen and (min-width: 1200px) {
         min-width: 700px;
     }
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 55px;
+    box-shadow: 0 20px 5px 0 rgba(0, 0, 0, 0.2), 0 34px 6px 0 rgba(0, 0, 0, 0.19);  
 }

@@ -18,7 +18,6 @@
         @extend .mainview__bg;
         background-color: rgba(0,0,0,.2);
     }
-
     &__blurb { 
         position: absolute;
         text-align: center; 
@@ -27,7 +26,6 @@
         transform: translate(-50%, -50%);
         
     }
-
     &__location { font-size: 2rem }
     &__weather { font-size: 1.75rem; text-transform: capitalize; }
 }
