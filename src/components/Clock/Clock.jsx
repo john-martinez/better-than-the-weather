@@ -18,7 +18,6 @@ class Clock extends Component {
     retrieveTime = () => {
         const today = new Date();
         let hours = "";
-        console.log(today.getHours())
         if (today.getHours() === 0){
             hours = '1';
         }
@@ -30,7 +29,7 @@ class Clock extends Component {
             hours = today.getHours();
         }
         hours = hours < 10 ? '0' + hours : hours;
-        const mins = today.getMinutes();
+        const mins = `${today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes() }`
         const secs = `${today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds() }`;
         return `${hours}:${mins}:${secs} ${today.getHours() > 11 ? "PM" : "AM"}`
     }
