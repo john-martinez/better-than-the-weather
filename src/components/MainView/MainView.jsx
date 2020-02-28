@@ -18,7 +18,7 @@ class MainView extends Component {
             let images = [];
             axios.get(`${LINK}?lat=${lat}&lon=${long}&appid=${API_KEY}`)
             .then(data=>{
-                weather = data.data.weather[0].main;
+                weather = data.data.weather[0].description;
                 location = data.data.name;
                 console.log(data.data)
             })

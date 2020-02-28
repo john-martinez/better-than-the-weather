@@ -27,5 +27,5 @@
     }
 
     &__location { font-size: 2rem }
-    &__weather { font-size: 1.75rem }
+    &__weather { font-size: 1.75rem; text-transform: capitalize; }
 }
