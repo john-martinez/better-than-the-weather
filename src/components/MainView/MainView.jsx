@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Clock from '../Clock/Clock';
+import News from '../NewsList/NewsList';
 import axios from 'axios';
 import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";

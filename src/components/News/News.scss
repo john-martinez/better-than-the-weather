@@ -1,0 +1,10 @@
+.news {
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 2%;
+    
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(0,0,0,0.1)
+    }
+}
