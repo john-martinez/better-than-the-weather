@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Clock.scss';
 class Clock extends Component {
     state = { currentTime: "" }
     timerId = "";
@@ -18,7 +18,6 @@ class Clock extends Component {
     retrieveTime = () => {
         const today = new Date();
         let hours = "";
-        // let hours = `${(today.getHours() > 12 ? today.getHours()-12 : today.getHours()) < 10 }`;
         console.log(today.getHours())
         if (today.getHours() === 0){
             hours = '1';
@@ -38,7 +37,7 @@ class Clock extends Component {
     render() {
         return (
             <div className="clock">
-                <p>{this.state.currentTime}</p>
+                <p className="clock__time">{this.state.currentTime}</p>
             </div>
         )
     }

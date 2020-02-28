@@ -20,6 +20,7 @@ class MainView extends Component {
             .then(data=>{
                 weather = data.data.weather[0].main;
                 location = data.data.name;
+                console.log(data.data)
             })
             .then(data=> axios.get(`https://api.unsplash.com/search/photos?query=${weather}%20${location}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`))
             .then(data=>images = data.data.results)
@@ -36,10 +37,11 @@ class MainView extends Component {
             return (
                 <div className="mainview">
                     <div className="mainview__bg" ref="mainBg"></div>
+                    <div className="mainview__overlay"></div>
                     <div className="mainview__blurb">
                         <Clock />
-                        <p>Location: {this.state.location}</p>
-                        <p>Weather: {this.state.weather}</p>
+                        <p className="mainview__location">{this.state.location}</p>
+                        <p className="mainview__weather">{this.state.weather}</p>
                     </div>
 
                 </div>
