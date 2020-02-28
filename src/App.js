@@ -7,16 +7,17 @@ import './App.scss';
 
 function App() {
   return (
-    <BrowserRouter>
+    
       <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={MainView}/>
-          <Route path="/test/:city" component={MainView} />
-        </Switch>
-        <NewsList />
+        <BrowserRouter>
+          <Header />
+            <Switch>
+              <Route exact path="/" component={MainView}/>
+              <Route exact path="/news" component={MainView}/>
+              <Route path="/test/:city" component={MainView} />
+            </Switch>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
   );
 }
 

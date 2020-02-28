@@ -10,10 +10,10 @@ function Header(){
     return(
         <ul className="nav">
             <Link to = "/">
-            <li className="nav__item">HOME<FontAwesomeIcon icon={faHome} size="2x" className ="icon-style"/></li>
+                <li className="nav__item">HOME<FontAwesomeIcon icon={faHome} size="2x" className ="icon-style"/></li>
             </Link>
             <Link to = "/news">
-            <li className="nav__item">TODAY'S NEWS<FontAwesomeIcon icon={faNewspaper} size = "2x" className ="icon-style"/></li>
+                <li className="nav__item">TODAY'S NEWS<FontAwesomeIcon icon={faNewspaper} size = "2x" className ="icon-style"/></li>
             </Link>
         </ul>
     );

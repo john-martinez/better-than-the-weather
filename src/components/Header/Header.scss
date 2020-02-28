@@ -1,8 +1,9 @@
 .nav {
     position: absolute;
-    margin-top: 50px;
+    width: 100%;
     z-index: 5; 
     &__item { display: inline-block; margin: 0 20px}
+    // background-color: black;
 }
 .icon-style{
     color: white;

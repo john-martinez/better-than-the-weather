@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Clock from '../Clock/Clock';
-import News from '../NewsList/NewsList';
+import NewsList from '../NewsList/NewsList';
 import axios from 'axios';
 import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";
@@ -39,21 +39,32 @@ class MainView extends Component {
         this.refs.mainBg.style.backgroundImage = `url("${this.state.images[Math.floor(Math.random() * Math.floor(10))].urls.full}")`;
     }
     render(){  
-        if (this.state.images.length > 0){
+        if(this.props.match.path === '/news'){
             return (
                 <div className="mainview">
                     <div className="mainview__bg" ref="mainBg"></div>
                     <div className="mainview__overlay"></div>
-                    <div className="mainview__blurb">
-                        <Clock />
-                        <p className="mainview__location">{this.state.location}</p>
-                        <p className="mainview__weather">{this.state.weather}</p>
-                    </div>
-
+                    <NewsList />
                 </div>
             )
         } else {
-            return <h1>LOADING</h1>
+            if (this.state.images.length > 0){
+                return (
+                    <div className="mainview">
+                        <div className="mainview__bg" ref="mainBg"></div>
+                        
+                        <div className="mainview__overlay"></div>
+                        <div className="mainview__blurb">
+                            <Clock />
+                            <p className="mainview__location">{this.state.location}</p>
+                            <p className="mainview__weather">{this.state.weather}</p>
+                        </div>
+
+                    </div>
+                )
+            } else {
+                return <h1>LOADING</h1>
+            }
         }
     }    
 }
