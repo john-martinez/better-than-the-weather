@@ -36,7 +36,9 @@ class Clock extends Component {
     render() {
         return (
             <div className="clock">
+                <div className ="clock-container">
                 <p className="clock__time">{this.state.currentTime}</p>
+            </div>
             </div>
         )
     }
