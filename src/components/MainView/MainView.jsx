@@ -17,11 +17,8 @@ class MainView extends Component {
             let location = "";
             let images = [];
             let timeOfDay = new Date(Date.now()).getHours() < 17 ? "morning" : "night";
-            console.log(this.props.match.params.city);
-            console.log(`${LINK}?${this.props.match.params.city ? `q=${this.props.match.params.city}`: `lat=${lat}&lon=${long}`}&appid=${API_KEY}`);
             axios.get(`${LINK}?${this.props.match.params.city ? `q=${this.props.match.params.city}`: `lat=${lat}&lon=${long}`}&appid=${API_KEY}`)
             .then(data=>{
-                
                 weather = data.data.weather[0].description;
                 location = data.data.name
             })
