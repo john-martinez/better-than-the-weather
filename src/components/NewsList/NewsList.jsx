@@ -18,7 +18,7 @@ class NewsList extends Component {
         if (this.state.news.length > 0) {
             return (
                 <div className="news-list">
-                    { this.state.news.map((item,i)=><News key={i} news={item}/>) }    
+                    { this.state.news.map((item,i)=><a href={item.url} target="_blank"> <News key={i} news={item} /></a>) }    
                 </div>
             )
         } else {
