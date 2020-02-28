@@ -4,6 +4,13 @@
     z-index: 5; 
     &__item { display: inline-block; margin: 0 20px}
     // background-color: black;
+
+    &__link:hover .icon-style {
+        transform: translateY(-5px);
+        // color: orange;
+        // transition-delay: unset;
+    }
+
 }
 .icon-style{
     color: white;
@@ -15,6 +22,7 @@
     @media only screen and (min-width: 768px) {
         margin-left: 20px;
     }
+
 }
 li {
     display: inline-block;
