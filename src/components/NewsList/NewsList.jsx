@@ -3,26 +3,29 @@ import News from '../News/News';
 import axios from 'axios';
 import './NewsList.scss';
 
-const LINK = "http://newsapi.org/v2/everything?q=vancouver&apiKey=5365a5d284064c309a7bf33dfe7f28f3"
+const LINK = "http://newsapi.org/v2/everything?q=toronto&apiKey=5365a5d284064c309a7bf33dfe7f28f3";
+// const API_KEY = "apiKey=5365a5d284064c309a7bf33dfe7f28f3";
 class NewsList extends Component {
+    stillMounted = false;
     state={news: []}
     componentDidMount(){
-        axios.get(LINK)
-        .then(data=>this.setState({news: data.data.articles}))
+        this.stillMounted = true;
+        axios.get(`http://newsapi.org/v2/everything?q=${this.props.loc}&apiKey=5365a5d284064c309a7bf33dfe7f28f3`)
+        .then(data=>this.stillMounted ? this.setState({news: data.data.articles}) : '')
         .catch(console.log);
     }
-    componentDidUpdate(){
-        console.log(this.state.news);
-    }
+
+    componentWillUnmount(){ this.stillMounted = false; }
     render(){
+        console.log(this.props.loc);
         if (this.state.news.length > 0) {
             return (
                 <div className="news-list">
-                    { this.state.news.map((item,i)=><a href={item.url} target="_blank"> <News key={i} news={item} /></a>) }    
+                    { this.state.news.map((item,i)=><a key={i} href={item.url} target="_blank"> <News  news={item} /></a>) }    
                 </div>
             )
         } else {
-            return <h2>LOADING</h2>
+            return <></>
         }
     }
 }
