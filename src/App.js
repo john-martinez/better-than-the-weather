@@ -1,12 +1,18 @@
 import React from 'react';
 import MainView from './components/MainView/MainView';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <MainView />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={MainView}/>
+          <Route path="/test/:city" component={MainView} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
