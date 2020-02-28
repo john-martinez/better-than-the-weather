@@ -1,5 +1,6 @@
 .nav {
     position: absolute;
+    margin-top: 50px;
     z-index: 5; 
     &__item { display: inline-block; margin: 0 20px}
 }
@@ -8,6 +9,7 @@
     margin-left: 10px;
     @media only screen and (min-width: 768px) {
         margin-left: 20px;
+
     }
     @media only screen and (min-width: 768px) {
         margin-left: 20px;
