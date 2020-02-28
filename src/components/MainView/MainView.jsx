@@ -16,13 +16,17 @@ class MainView extends Component {
             let weather = "";
             let location = "";
             let images = [];
+            let timeOfDay = new Date(Date.now()).getHours() < 17 ? "morning" : "night";
             axios.get(`${LINK}?lat=${lat}&lon=${long}&appid=${API_KEY}`)
             .then(data=>{
                 weather = data.data.weather[0].description;
-                location = data.data.name;
-                console.log(data.data)
+                location = data.data.name
             })
-            .then(data=> axios.get(`https://api.unsplash.com/search/photos?query=${weather}%20${location}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`))
+            .then(data=>{
+                let queryWeather = weather.split(" ").join("%20");
+                let queryLocation = location.split(" ").join("%20");
+                return axios.get(`https://api.unsplash.com/search/photos?query=${queryWeather}%20${queryLocation}%20${timeOfDay}&client_id=fa6zT77K5kKv6fbg8vwcZgBroVESwIu6_aLCo2FNC7Q`)
+            })
             .then(data=>images = data.data.results)
             .then(data=>this.setState({location, weather, images}))
             .catch(console.log)
