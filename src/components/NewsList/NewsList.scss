@@ -1,14 +1,20 @@
 .news-list {
-    width: 80%; 
+    border-radius: 15px;
+    width: 80%;
     margin-top: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-top: 1px solid black;
+    // border-top: 1px solid black;
     text-decoration: none;
     max-height: 80vh;    
-    overflow-y: scroll;
+    overflow-y: auto;
+    -ms-overflow-style: none;
     background-color: rgba(255,255,255,.5);
-    // overflow: hidden
 }
+
+.news-list::-webkit-scrollbar {
+    display: none;
+}
+
