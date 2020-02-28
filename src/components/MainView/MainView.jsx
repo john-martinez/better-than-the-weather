@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Clock from '../Clock/Clock';
 import axios from 'axios';
 import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";
@@ -29,17 +30,17 @@ class MainView extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        this.refs.mainBg.style.backgroundImage = `url("${this.state.images[1].urls.full}")`;
+        this.refs.mainBg.style.backgroundImage = `url("${this.state.images[0].urls.full}")`;
     }
     render(){  
         if (this.state.images.length > 0){
-            console.log('hehehehe');
             return (
                 <div className="mainview">
                     <div className="mainview__bg" ref="mainBg"></div>
                     <div className="mainview__blurb">
                         <p>Location: {this.state.location}</p>
                         <p>Weather: {this.state.weather}</p>
+                        <p><Clock /></p>
                     </div>
 
                 </div>
