@@ -5,7 +5,13 @@
 }
 .icon-style{
     color: white;
-    margin-left: 20px;
+    margin-left: 10px;
+    @media only screen and (min-width: 768px) {
+        margin-left: 20px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin-left: 20px;
+    }
 }
 li {
     display: inline-block;
@@ -13,6 +19,11 @@ li {
     color: white;
     font-weight: 500;
     line-height: 20px;
+    font-size: 16px;
+    @media only screen and (min-width: 768px) {
+        font-size: 18px;
+    }
+    @media only screen and (min-width: 768px) {
     font-size: 24px;
-    
+    }
 }
