@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Clock from '../Clock/Clock';
 import NewsList from '../NewsList/NewsList';
+import {ClimbingBoxLoader} from 'react-spinners';
 import axios from 'axios';
 import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";
@@ -77,7 +78,11 @@ class MainView extends Component {
                     </div>
                 )
             } else {
-                return <h1>LOADING</h1>
+                return ( <div className="mainview__loader">
+                    <ClimbingBoxLoader />
+                </div>
+                    
+                )
             }
         }
     }    
