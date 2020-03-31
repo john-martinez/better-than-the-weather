@@ -3,7 +3,6 @@ import News from '../News/News';
 import axios from 'axios';
 import './NewsList.scss';
 
-const LINK = "http://newsapi.org/v2/everything?q=toronto&apiKey=5365a5d284064c309a7bf33dfe7f28f3";
 // const API_KEY = "apiKey=5365a5d284064c309a7bf33dfe7f28f3";
 class NewsList extends Component {
     stillMounted = false;
