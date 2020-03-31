@@ -9,7 +9,7 @@ class NewsList extends Component {
     state={news: []}
     componentDidMount(){
         this.stillMounted = true;
-        axios.get(`http://newsapi.org/v2/everything?q=${this.props.loc}&apiKey=5365a5d284064c309a7bf33dfe7f28f3`)
+        axios.get(`https://newsapi.org/v2/everything?q=${this.props.loc}&apiKey=5365a5d284064c309a7bf33dfe7f28f3`)
         .then(data=>this.stillMounted ? this.setState({news: data.data.articles}) : '')
         .catch(console.log);
     }
