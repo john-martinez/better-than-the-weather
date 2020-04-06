@@ -16,5 +16,6 @@
 
 .news-list::-webkit-scrollbar {
     display: none;
+    -ms-overflow-style: none;
 }
 
