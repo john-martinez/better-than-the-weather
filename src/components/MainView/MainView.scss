@@ -26,5 +26,11 @@
         
     }
     &__location { font-size: 2rem }
+    &__loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
     &__weather { font-size: 1.75rem; text-transform: capitalize; }
 }

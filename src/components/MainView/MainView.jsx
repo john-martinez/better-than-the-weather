@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Clock from '../Clock/Clock';
 import NewsList from '../NewsList/NewsList';
+import {ClimbingBoxLoader} from 'react-spinners';
 import axios from 'axios';
 import './MainView.scss';
 const API_KEY = "d6e0f59ad2174a7b9e3abd197d40271a";
-const LINK = "http://api.openweathermap.org/data/2.5/weather";
+const LINK = "https://api.openweathermap.org/data/2.5/weather";
 
 class MainView extends Component {
     state = { location: "", weather: "", images: [], advice: ""}
@@ -15,6 +16,7 @@ class MainView extends Component {
         navigator.geolocation.getCurrentPosition(position=> {
             let long = position.coords.longitude;
             let lat = position.coords.latitude;
+            console.log(long,lat)
             let weather = "";
             let location = "";
             let images = [];
@@ -48,7 +50,7 @@ class MainView extends Component {
             this.refs.mainBg.style.backgroundImage = `url("${this.state.images[Math.floor(Math.random() * Math.floor(10))].urls.full}")`;
         }
     }
-    componentWillMount(){
+    componentWillUnmount(){
         this.stillMounted = false;
     }
     render(){  
@@ -76,7 +78,11 @@ class MainView extends Component {
                     </div>
                 )
             } else {
-                return <h1>LOADING</h1>
+                return ( <div className="mainview__loader">
+                    <ClimbingBoxLoader />
+                </div>
+                    
+                )
             }
         }
     }    
